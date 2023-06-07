@@ -31,10 +31,9 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true
 });
 
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose is connected!!!!');
-});
-
 const server = app.listen(port, () => {
   console.log(`Server is running: ${port}`);
 });
+
+
+module.exports = { app };

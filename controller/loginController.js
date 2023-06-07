@@ -7,11 +7,8 @@ const loginUser = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    if (!email) {
-        return res.status(404).json({ success: false, error: 'No email Found' });
-    }
-    if (!password) {
-        return res.status(404).json({ success: false, error: 'No Password Found' });
+    if (!email || !password) {
+        return res.status(404).json({ success: false, error: 'Email and Password is Required' });
     }
 
     const user = await User.findOne({ email })
